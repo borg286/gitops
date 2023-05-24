@@ -1,0 +1,12 @@
+kind: Service 
+apiVersion: v1 
+metadata:
+  name: bazel-cache
+spec:
+  type: NodePort
+  selector:
+    app: bazel-cache
+  ports:
+    - nodePort: 30000
+      port: 30000
+      targetPort: 9092

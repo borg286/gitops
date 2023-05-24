@@ -1,4 +1,7 @@
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive", "http_file")
+
+#############   GitOps   ###################
+
 
 http_archive(
     name = "com_adobe_rules_gitops",
@@ -30,6 +33,8 @@ load("@com_adobe_rules_gitops//gitops:repositories.bzl", "rules_gitops_repositor
 
 rules_gitops_repositories()
 
+################   End GitOps    ################
+
 
 #
 # examples dependencies
@@ -41,3 +46,9 @@ load(
 )
 
 go_image_repositories()
+
+
+http_file(
+    name = "bazel-remote-yaml",
+    urls = ["https://raw.githubusercontent.com/buchgr/bazel-remote/master/examples/kubernetes.yml"],
+)

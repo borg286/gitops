@@ -1,0 +1,1 @@
+build --remote_cache=grpc://registry.localhost:30000 --remote_timeout=1 --remote_retries=1 --remote_local_fallback
